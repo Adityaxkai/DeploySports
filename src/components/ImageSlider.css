@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap');
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.slider-slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.image-control{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.85);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.15);
+  z-index:991;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: auto;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  
+}
+
+.logo {
+  height: 12rem;
+  width: 12rem;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  border-radius:50%;
+  animation:shrinklogo 1s forwards ease-out;
+  animation-delay:0.5s;
+
+}
+
+@keyframes shrinklogo{
+    from{
+        height:12rem;
+        width:12rem;
+
+
+    }
+    to{
+        height:8rem;
+        width:8rem;
+
+    }
+}
+
+.overlay h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
+  transform:translateY(20px);
+  animation:slidein 1s forwards ease-out;
+  animation-delay:1s;
+
+}
+@keyframes slidein{
+    to{
+        transform:translateY(0px);
+    }
+}
+
+
+.overlay p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.7;
+  max-width: 700px;
+  padding: 0rem 1.5rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  opacity:0;
+  margin-top:-200px;
+  animation:animate 0.8s forwards 1.1s;
+  transition:background 0.3s ease;
+}
+
+/*Animation*/
+@keyframes animate{
+    from{
+        margin-top:-200px;
+        opacity:0;
+
+    }
+    to{
+        margin-top:0px;
+        opacity:1;
+
+    }
+}
+
+
+
+
+.cta-button {
+  background: rgba(230, 57, 70, 0.9);
+  color: white;
+  padding: 0.9rem 2.5rem;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:hover {
+  background: rgba(247, 37, 54, 0.95);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
+}
+
+.cta-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0) 60%
+  );
+  transform: rotate(30deg);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover::after {
+  left: 100%;
+}
+@media (max-width:896px){
+  .slider-image{
+    object-fit: contain;
+    height: 100%;
+  }
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 400px) {
+  .slider-wrapper {
+    height: 100vh;
+  }
+
+  .slider-slide,
+  .image-control,
+  .slider-image {
+    height: 100%;
+    width: 100%;
+  }
+
+  .slider-image {
+    object-fit: cover;
+  }
+
+  .content-wrapper {
+    padding: 1.2rem;
+    gap: 1rem;
+    width: 95%;
+  }
+
+  .logo {
+    height: 5rem;
+    width: 5rem;
+  }
+
+  .overlay h1 {
+    font-size: 1.6rem;
+    line-height: 2rem;
+    margin-bottom:-0.5rem;
+  }
+
+  .overlay p {
+    font-size: 0.9rem;
+    line-height: 1.4rem;
+    padding: 0.5rem 0.5rem;
+  }
+
+  .cta-button {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.5rem;
+    margin-top:-1.5rem !important;
+  }
+  .overlay{
+      padding:0rem;
+      height:auto;
+      top:62px;
+  }
+}
+
+.slider-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* So Swiper navigation still works */
+  z-index: 990;
+}
+
+.slider-overlay .content-wrapper {
+  pointer-events: auto;
+}
